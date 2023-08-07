@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import Sobre from '@/components/sobre_mim/sobre'
-import Experiencias from '@/components/experiencias/experiencias'
+import Habilidades from '@/components/habilidades/habilidades'
 import Projetos from '@/components/projetos/projetos'
 import Contato from '@/components/contato/contato'
 import styled from 'styled-components'
@@ -18,14 +18,14 @@ const Container = styled.div`
     display:none;
   }
   background: url("./images/bg.jpg");  
-  background-size: 100%;
+  background-size: 100% !important;
 `;
 
 export default function Home() {
   return (
     <Container>
       <Sobre />
-      <Experiencias />
+      <Habilidades />
       <Projetos />
       <Contato />
     </Container>

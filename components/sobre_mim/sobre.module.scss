@@ -1,6 +1,8 @@
 @import "@/styles/mixins/textos.scss";
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 .container{
     height: 100vh;
     scroll-snap-align: center;
@@ -63,6 +65,7 @@
 }
 .desc_sobre{
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .buraco_negro{
@@ -80,4 +83,20 @@
             transform: rotate(360deg) scale(1.5);
         }
     }
+}
+
+.seta_down{
+    width: 3rem;
+    height: 2rem;
+    color: white;
+    animation: down 0.5s infinite ease alternate;
+    @keyframes down {
+        to{
+            transform: translateY(0.3rem)
+        }
+    }
+}
+.div_seta{
+    display: flex;
+    justify-content: center;
 }
