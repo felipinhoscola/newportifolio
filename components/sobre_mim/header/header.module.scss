@@ -1,0 +1,24 @@
+@import "@/styles/mixins/textos.scss";
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem 0 2rem;
+    font-family: $font-header;
+}
+.logo_tamanho{
+    width: 8rem;
+    height: 8rem;
+    color: red;
+}
+.lista_menu{
+    display: flex;
+    gap: 3rem;
+}
+.menu_principal{
+    
+}
+.contact{
+
+}
