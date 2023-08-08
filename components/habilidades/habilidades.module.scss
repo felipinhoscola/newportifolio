@@ -1,4 +1,12 @@
-.container{
-    height: 100vh;
-    scroll-snap-align: center;
+
+.seta_down{
+    width: 3rem;
+    height: 2rem;
+    color: white;
+    animation: down 0.5s infinite ease alternate;
+    @keyframes down {
+        to{
+            transform: translateY(0.3rem)
+        }
+    }
 }

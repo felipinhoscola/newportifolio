@@ -4,18 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 .container{
-    height: 100vh;
-    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     font-family: 'Courgette', cursive;
-
 }
 .div_sobre{
-    margin-top: 10rem;
+    margin-top: 11rem;
     height: 100%;
-    scroll-snap-align: center;
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -32,9 +28,6 @@
     height: 400px;
     width: 400px;
     position: relative;
-}
-.linha{
-
 }
 .info_sobre{
     display: flex;
@@ -85,18 +78,3 @@
     }
 }
 
-.seta_down{
-    width: 3rem;
-    height: 2rem;
-    color: white;
-    animation: down 0.5s infinite ease alternate;
-    @keyframes down {
-        to{
-            transform: translateY(0.3rem)
-        }
-    }
-}
-.div_seta{
-    display: flex;
-    justify-content: center;
-}

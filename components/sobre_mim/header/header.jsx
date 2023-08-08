@@ -11,8 +11,8 @@ const Header = () =>{
         </div>
         <div className={css.menu_principal}>
             <div className={css.lista_menu}>
-                <Link href="/">Experiências</Link>
-                <Link href="/">Sobre Mim</Link>
+                <Link href="#section_exp">Experiências</Link>
+                <Link href="#section_sobre">Sobre Mim</Link>
                 <Link href="/">Projetos</Link>
             </div>
         </div>

@@ -24,7 +24,7 @@ const Container = styled.div`
 export default function Home() {
   return (
     <Container>
-      <Sobre />
+      <Sobre/>
       <Habilidades />
       <Projetos />
       <Contato />
