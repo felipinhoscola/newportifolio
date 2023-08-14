@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import css from "./habilidades.module.scss";
-import FundoExp from "./../objects/fundoExp";
 import Image from "next/image";
 import { useState } from "react";
 
