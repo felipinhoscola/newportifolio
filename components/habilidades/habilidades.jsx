@@ -1,11 +1,16 @@
 import styled from "styled-components";
 import css from "./habilidades.module.scss";
+import FundoExp from "./../objects/fundoExp";
 import Image from "next/image";
 import { useState } from "react";
+
+//icons
 import htmlIcon from "@/public/images/html-icon.png";
 import jsIcon from "@/public/images/js-icon.png";
 import phpIcon from "@/public/images/php-icon.png";
 import cssIcon from "@/public/images/css-icon.png";
+import sqlIcon from "@/public/images/sql-icon.png";
+import reactIcon from "@/public/images/react-icon.png";
 
 //variaveis
 const data = ["Estágio", "Portifólio", "App Teste"];
@@ -26,22 +31,41 @@ const Div_left = styled.div`
 const Div_right = styled.div`
   max-width: 25%;
 `;
-const DivInvisible = styled.div`
-  display: none;
-`;
 const Ul = styled.div`
   list-style-type: none;
   padding-left: 0;
-  font-weight: bold;
-  font-family: "Anton", sans-serif;
-  color: #ddaebe;
-  font-size: 4rem;
 `;
-const Topicos = styled.div`
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.1);
-    color: #dbc4cb;
+const Topicos = styled.li`
+  font-family: "Anton", sans-serif;
+  font-size:100px;
+  /* font-weight: bold; */
+  cursor: pointer;
+  color:transparent;
+  -webkit-text-stroke: 1px white;
+  position: relative;
+  
+
+  ::after{
+    content: "${(props) => props.text}";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color:#ddaebe;
+    width: 0;
+    overflow: hidden;
+    white-space:nowrap;
+  }
+
+  &:hover{
+    ::after{
+      animation: moveText 0.5s linear both;
+
+      @keyframes moveText{
+        to{
+          width: 100%;
+        }
+      }
+    }
   }
 `;
 const Infos = styled.div`
@@ -81,6 +105,10 @@ const Desc = styled.div`
 const Habilidades = () => {
   const [work, setWork] = useState("");
   const [icon, setIcon] = useState("");
+  function carregaTopico(item) {
+    setWork(item);
+    setIcon(0)
+  }
   return (
     <Section id="section_exp">
       <Div_principal>
@@ -89,7 +117,7 @@ const Habilidades = () => {
             {/* Corre o array e colocando o valor em cada lugar q chama o item */}
             {data.map((item) => (
               <li>
-                <Topicos key={item} onClick={() => setWork(item)}>
+                <Topicos key={item} onClick={() => carregaTopico(item)} text={item} >
                   {item}
                 </Topicos>
               </li>
@@ -123,7 +151,7 @@ const Habilidades = () => {
                 <Image
                   className={css.IconsClass}
                   onClick={() => setIcon(5)}
-                  
+                  src={sqlIcon}
                 ></Image>
               </Icons>
               {icon === 1 ? (
@@ -205,14 +233,42 @@ const Habilidades = () => {
               )}
             </Infos>
           ) : work === "Portifólio" ? (
-            <h1>portifolio</h1>
+            <Infos>
+              <Icons>
+                <Image
+                  className={css.IconsClass}
+                  onClick={() => setIcon(1)}
+                  src={reactIcon}
+                ></Image>
+              </Icons>
+              {icon === 1 ? (
+                <Desc>
+                  <Titulo>React</Titulo>
+                  <Text>
+                    Apresentamos nosso site, construído exclusivamente com o
+                    framework React. Cada aspecto desta plataforma reflete a
+                    versatilidade e eficiência deste framework JavaScript
+                    amplamente adotado. Com o React, pudemos criar uma
+                    experiência de usuário dinâmica, repleta de componentes
+                    interativos e uma interface ágil. Seja nas animações suaves
+                    ou nas transições perfeitas, o React foi a base que
+                    impulsionou nossa plataforma para um nível superior de
+                    envolvimento e usabilidade. Este site é um testemunho do
+                    poder do React em ação.
+                  </Text>
+                </Desc>
+              ) : (
+                <></>
+              )}
+            </Infos>
           ) : work === "App Teste" ? (
-            <h1>app teste</h1>
+            <h1>Em manutenção!</h1>
           ) : (
-            <DivInvisible></DivInvisible>
+            <></>
           )}
         </Div_right>
       </Div_principal>
+      {/* <FundoExp/> */}
     </Section>
   );
 };
