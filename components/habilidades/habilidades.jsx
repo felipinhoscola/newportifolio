@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import css from "./habilidades.module.scss";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 
 //icons
 import htmlIcon from "@/public/images/html-icon.png";
@@ -29,6 +31,7 @@ const Div_left = styled.div`
 `;
 const Div_right = styled.div`
   max-width: 25%;
+  position: relative;
 `;
 const Ul = styled.div`
   list-style-type: none;
@@ -68,6 +71,7 @@ const Topicos = styled.li`
   }
 `;
 const Infos = styled.div`
+  z-index:100;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -99,6 +103,12 @@ const Desc = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+const ThreeD = styled.div`
+    z-index:0;
+    position:absolute;
+    height: 100%;
+    width: 100%;
+`;
 //functions
 
 const Habilidades = () => {
@@ -124,150 +134,167 @@ const Habilidades = () => {
           </Ul>
         </Div_left>
         <Div_right>
+          <ThreeD>
+            <Canvas>
+              <Suspense fallback={null}>
+                <OrbitControls enableZoom={false} />
+                <ambientLight intensity={1} />
+                <directionalLight position={[3, 2, 1]} />
+                <Sphere args={[1, 100, 200]} scale={2.4}>
+                  <MeshDistortMaterial
+                    color="#3d1c56"
+                    attach="material"
+                    distort={0.5}
+                    speed={2}
+                  />
+                </Sphere>
+              </Suspense>
+            </Canvas>
+          </ThreeD>
           {work === "Estágio" ? (
-            <Infos>
-              <Icons>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(1)}
-                  src={htmlIcon}
-                ></Image>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(2)}
-                  src={cssIcon}
-                ></Image>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(3)}
-                  src={jsIcon}
-                ></Image>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(4)}
-                  src={phpIcon}
-                ></Image>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(5)}
-                  src={sqlIcon}
-                ></Image>
-              </Icons>
-              {icon === 1 ? (
-                <Desc>
-                  <Titulo>HTML (HyperText Markup Language)</Titulo>
-                  <Text>
-                    Durante o meu estágio, tive a oportunidade de aplicar o HTML
-                    para criar a estrutura das telas do sistema de ERP. Utilizei
-                    também a framework Bootstrap para agilizar o processo de
-                    design responsivo e garantir uma aparência moderna e
-                    consistente em todas as telas. Através do HTML e do
-                    Bootstrap, pude definir a organização dos elementos nas
-                    páginas, incluindo a criação de formulários, tabelas e
-                    divisões. O HTML e o Bootstrap foram fundamentais para
-                    estabelecer a base visual das telas e determinar como os
-                    elementos seriam exibidos no navegador.
-                  </Text>
-                </Desc>
-              ) : icon === 2 ? (
-                <Desc>
-                  <Titulo>CSS (Cascading Style Sheets)</Titulo>
-                  <Text>
-                    Utilizei o CSS para dar vida às telas do sistema de ERP.
-                    Através dessa linguagem, pude aplicar estilos visuais, como
-                    cores, fontes, tamanhos e layouts, garantindo uma aparência
-                    coesa e agradável. A aplicação do CSS foi essencial para
-                    criar uma experiência visualmente consistente e atraente
-                    para os usuários que interagem com o sistema.
-                  </Text>
-                </Desc>
-              ) : icon === 3 ? (
-                <Desc>
-                  <Titulo>JavaScript (JS)</Titulo>
-                  <Text>
-                    Durante o estágio, aproveitei o JavaScript, juntamente com a
-                    biblioteca jQuery, para adicionar interatividade às telas do
-                    sistema de ERP. Isso incluiu a implementação de validações
-                    de formulários, animações e atualizações em tempo real. Com
-                    a ajuda do jQuery, consegui simplificar a manipulação do DOM
-                    e a comunicação assíncrona com o servidor, tornando as telas
-                    mais dinâmicas e responsivas. Essa abordagem melhorou
-                    significativamente a experiência do usuário ao interagir com
-                    o sistema.{" "}
-                  </Text>
-                </Desc>
-              ) : icon === 4 ? (
-                <Desc>
-                  <Titulo>PHP</Titulo>
-                  <Text>
-                    No decorrer do meu estágio, tive a oportunidade de trabalhar
-                    com PHP para lidar com a lógica de negócios e a interação
-                    com o banco de dados do sistema de ERP. Para estabelecer as
-                    conexões com o banco de dados de maneira segura e eficiente,
-                    utilizei a extensão PDO (PHP Data Objects). Além disso,
-                    implementei a biblioteca Fpdf para gerar relatórios em PDF
-                    diretamente a partir dos dados do sistema. Com o uso do PDO,
-                    pude garantir a integridade das conexões com o banco de
-                    dados, enquanto o Fpdf permitiu a criação de relatórios
-                    personalizados de forma automática, agregando um valor
-                    significativo ao sistema.
-                  </Text>
-                </Desc>
-              ) : icon === 5 ? (
-                <Desc>
-                  <Titulo>SQL (Structured Query Language)</Titulo>
-                  <Text>
-                    Durante o estágio, o SQL desempenhou um papel crucial na
-                    gestão dos dados do sistema de ERP. Utilizei o SQL no SQL
-                    Management Studio para executar operações como alterações,
-                    inserções e exclusões de dados em tabelas. Além disso, criei
-                    consultas avançadas para recuperar informações específicas e
-                    relacionamentos complexos entre os dados. Essas consultas
-                    foram essenciais para fornecer insights valiosos aos
-                    usuários e auxiliar na tomada de decisões informadas.
-                  </Text>
-                </Desc>
-              ) : (
-                <></>
-              )}
-            </Infos>
-          ) : work === "Portifólio" ? (
-            <Infos>
-              <Icons>
-                <Image
-                  className={css.IconsClass}
-                  onClick={() => setIcon(1)}
-                  src={reactIcon}
-                ></Image>
-              </Icons>
-              {icon === 1 ? (
-                <Desc>
-                  <Titulo>React</Titulo>
-                  <Text>
-                    Apresentamos nosso site, construído exclusivamente com o
-                    framework React. Cada aspecto desta plataforma reflete a
-                    versatilidade e eficiência deste framework JavaScript
-                    amplamente adotado. Com o React, pudemos criar uma
-                    experiência de usuário dinâmica, repleta de componentes
-                    interativos e uma interface ágil. Seja nas animações suaves
-                    ou nas transições perfeitas, o React foi a base que
-                    impulsionou nossa plataforma para um nível superior de
-                    envolvimento e usabilidade. Este site é um testemunho do
-                    poder do React em ação.
-                  </Text>
-                </Desc>
-              ) : (
-                <></>
-              )}
-            </Infos>
-          ) : work === "App Teste" ? (
-            <h1>Em manutenção!</h1>
-          ) : (
-            <></>
-          )}
+              <Infos>
+                <Icons>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(1)}
+                    src={htmlIcon}
+                  ></Image>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(2)}
+                    src={cssIcon}
+                  ></Image>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(3)}
+                    src={jsIcon}
+                  ></Image>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(4)}
+                    src={phpIcon}
+                  ></Image>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(5)}
+                    src={sqlIcon}
+                  ></Image>
+                </Icons>
+                {icon === 1 ? (
+                  <Desc>
+                    <Titulo>HTML (HyperText Markup Language)</Titulo>
+                    <Text>
+                      Durante o meu estágio, tive a oportunidade de aplicar o HTML
+                      para criar a estrutura das telas do sistema de ERP. Utilizei
+                      também a framework Bootstrap para agilizar o processo de
+                      design responsivo e garantir uma aparência moderna e
+                      consistente em todas as telas. Através do HTML e do
+                      Bootstrap, pude definir a organização dos elementos nas
+                      páginas, incluindo a criação de formulários, tabelas e
+                      divisões. O HTML e o Bootstrap foram fundamentais para
+                      estabelecer a base visual das telas e determinar como os
+                      elementos seriam exibidos no navegador.
+                    </Text>
+                  </Desc>
+                ) : icon === 2 ? (
+                  <Desc>
+                    <Titulo>CSS (Cascading Style Sheets)</Titulo>
+                    <Text>
+                      Utilizei o CSS para dar vida às telas do sistema de ERP.
+                      Através dessa linguagem, pude aplicar estilos visuais, como
+                      cores, fontes, tamanhos e layouts, garantindo uma aparência
+                      coesa e agradável. A aplicação do CSS foi essencial para
+                      criar uma experiência visualmente consistente e atraente
+                      para os usuários que interagem com o sistema.
+                    </Text>
+                  </Desc>
+                ) : icon === 3 ? (
+                  <Desc>
+                    <Titulo>JavaScript (JS)</Titulo>
+                    <Text>
+                      Durante o estágio, aproveitei o JavaScript, juntamente com a
+                      biblioteca jQuery, para adicionar interatividade às telas do
+                      sistema de ERP. Isso incluiu a implementação de validações
+                      de formulários, animações e atualizações em tempo real. Com
+                      a ajuda do jQuery, consegui simplificar a manipulação do DOM
+                      e a comunicação assíncrona com o servidor, tornando as telas
+                      mais dinâmicas e responsivas. Essa abordagem melhorou
+                      significativamente a experiência do usuário ao interagir com
+                      o sistema.{" "}
+                    </Text>
+                  </Desc>
+                ) : icon === 4 ? (
+                  <Desc>
+                    <Titulo>PHP</Titulo>
+                    <Text>
+                      No decorrer do meu estágio, tive a oportunidade de trabalhar
+                      com PHP para lidar com a lógica de negócios e a interação
+                      com o banco de dados do sistema de ERP. Para estabelecer as
+                      conexões com o banco de dados de maneira segura e eficiente,
+                      utilizei a extensão PDO (PHP Data Objects). Além disso,
+                      implementei a biblioteca Fpdf para gerar relatórios em PDF
+                      diretamente a partir dos dados do sistema. Com o uso do PDO,
+                      pude garantir a integridade das conexões com o banco de
+                      dados, enquanto o Fpdf permitiu a criação de relatórios
+                      personalizados de forma automática, agregando um valor
+                      significativo ao sistema.
+                    </Text>
+                  </Desc>
+                ) : icon === 5 ? (
+                  <Desc>
+                    <Titulo>SQL (Structured Query Language)</Titulo>
+                    <Text>
+                      Durante o estágio, o SQL desempenhou um papel crucial na
+                      gestão dos dados do sistema de ERP. Utilizei o SQL no SQL
+                      Management Studio para executar operações como alterações,
+                      inserções e exclusões de dados em tabelas. Além disso, criei
+                      consultas avançadas para recuperar informações específicas e
+                      relacionamentos complexos entre os dados. Essas consultas
+                      foram essenciais para fornecer insights valiosos aos
+                      usuários e auxiliar na tomada de decisões informadas.
+                    </Text>
+                  </Desc>
+                ) : (
+                  <></>
+                )}
+              </Infos>
+            ) : work === "Portifólio" ? (
+              <Infos>
+                <Icons>
+                  <Image
+                    className={css.IconsClass}
+                    onClick={() => setIcon(1)}
+                    src={reactIcon}
+                  ></Image>
+                </Icons>
+                {icon === 1 ? (
+                  <Desc>
+                    <Titulo>React</Titulo>
+                    <Text>
+                      Apresentamos nosso site, construído exclusivamente com o
+                      framework React. Cada aspecto desta plataforma reflete a
+                      versatilidade e eficiência deste framework JavaScript
+                      amplamente adotado. Com o React, pudemos criar uma
+                      experiência de usuário dinâmica, repleta de componentes
+                      interativos e uma interface ágil. Seja nas animações suaves
+                      ou nas transições perfeitas, o React foi a base que
+                      impulsionou nossa plataforma para um nível superior de
+                      envolvimento e usabilidade. Este site é um testemunho do
+                      poder do React em ação.
+                    </Text>
+                  </Desc>
+                ) : (
+                  <></>
+                )}
+              </Infos>
+            ) : work === "App Teste" ? (
+              <h1>Em manutenção!</h1>
+            ) : (
+              <></>
+            )
+          }       
         </Div_right>
       </Div_principal>
-      {/* <FundoExp/> */}
     </Section>
   );
 };
