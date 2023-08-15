@@ -8,6 +8,7 @@ import styled from 'styled-components'
 const inter = Inter({ subsets: ['latin'] })
 
 const Container = styled.div`
+  z-index: -99;
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

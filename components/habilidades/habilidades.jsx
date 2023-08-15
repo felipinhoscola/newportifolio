@@ -2,8 +2,8 @@ import styled from "styled-components";
 import css from "./habilidades.module.scss";
 import Image from "next/image";
 import React, { useState, Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
+
+
 
 //icons
 import htmlIcon from "@/public/images/html-icon.png";
@@ -12,6 +12,7 @@ import phpIcon from "@/public/images/php-icon.png";
 import cssIcon from "@/public/images/css-icon.png";
 import sqlIcon from "@/public/images/sql-icon.png";
 import reactIcon from "@/public/images/react-icon.png";
+
 
 //variaveis
 const data = ["Estágio", "Portifólio", "App Teste"];
@@ -30,8 +31,7 @@ const Div_left = styled.div`
   max-width: 25%;
 `;
 const Div_right = styled.div`
-  max-width: 25%;
-  position: relative;
+  max-width: 40%;
 `;
 const Ul = styled.div`
   list-style-type: none;
@@ -71,10 +71,15 @@ const Topicos = styled.li`
   }
 `;
 const Infos = styled.div`
-  z-index:100;
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 `;
 const Icons = styled.div`
   display: flex;
@@ -96,18 +101,16 @@ const Titulo = styled.div`
   font-weight: bold;
   font-size: 1.5rem;
   text-align: center;
+  border-top: 1px solid white;
+  border-radius: 1px;
+  padding-top: 1rem;
+  width: 100%;
   font-family: "Poppins", sans-serif;
 `;
 const Desc = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
-const ThreeD = styled.div`
-    z-index:0;
-    position:absolute;
-    height: 100%;
-    width: 100%;
 `;
 //functions
 
@@ -134,23 +137,6 @@ const Habilidades = () => {
           </Ul>
         </Div_left>
         <Div_right>
-          <ThreeD>
-            <Canvas>
-              <Suspense fallback={null}>
-                <OrbitControls enableZoom={false} />
-                <ambientLight intensity={1} />
-                <directionalLight position={[3, 2, 1]} />
-                <Sphere args={[1, 100, 200]} scale={2.4}>
-                  <MeshDistortMaterial
-                    color="#3d1c56"
-                    attach="material"
-                    distort={0.5}
-                    speed={2}
-                  />
-                </Sphere>
-              </Suspense>
-            </Canvas>
-          </ThreeD>
           {work === "Estágio" ? (
               <Infos>
                 <Icons>
@@ -271,7 +257,7 @@ const Habilidades = () => {
                   <Desc>
                     <Titulo>React</Titulo>
                     <Text>
-                      Apresentamos nosso site, construído exclusivamente com o
+                      Apresento meu site, construído exclusivamente com o
                       framework React. Cada aspecto desta plataforma reflete a
                       versatilidade e eficiência deste framework JavaScript
                       amplamente adotado. Com o React, pudemos criar uma
