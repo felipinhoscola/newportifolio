@@ -4,7 +4,7 @@ import Header from '@/components/sobre_mim/header/header'
 import Image from "next/image";
 import linha from "@/public/images/line.svg"
 import buracoNegro from "@/public/images/buraco_negro.png"
-import { Suspense } from "react";
+//import { Suspense } from "react";
 
 //mais pra frente vou tentar colocar um 3d de buraco negro
 // //3D
