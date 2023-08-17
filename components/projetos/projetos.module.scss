@@ -2,3 +2,62 @@
     height: 100vh;
     scroll-snap-align: center;
 }
+.sessaoCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 3%;
+}
+.card{
+    width: 25%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: transform 1s;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.cardContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardHead{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    width: 30%;
+}
+
+.cardTitle{
+    padding-top: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    height: 6rem;
+}
+.cardDesc{
+    font-family: "Poppins", sans-serif;
+    word-wrap: break-word;
+    font-size: 1.1rem;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    height: 16rem;
+}
+.cardAnx{
+    text-align: end;
+}
+
+.anx:hover{
+    color: #ddaebe;
+    cursor: pointer;
+}
+

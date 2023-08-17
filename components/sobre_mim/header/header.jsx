@@ -13,7 +13,7 @@ const Header = () =>{
             <div className={css.lista_menu}>
                 <Link href="#section_exp">Experiências</Link>
                 <Link href="#section_sobre">Sobre Mim</Link>
-                <Link href="/">Projetos</Link>
+                <Link href="#section_projetos">Projetos</Link>
             </div>
         </div>
         <div className={css.contact}>
