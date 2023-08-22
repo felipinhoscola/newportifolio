@@ -17,7 +17,7 @@ const Header = () =>{
             </div>
         </div>
         <div className={css.contact}>
-            <Link href="/">Contate-me</Link>
+            <Link href="#section-contact">Contate-me</Link>
         </div>
     </div>
     ) 
