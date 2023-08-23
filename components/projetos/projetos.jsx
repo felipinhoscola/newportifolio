@@ -1,7 +1,6 @@
 import css from "./projetos.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
 // varios cards com projetos, contendo uma breve desc e o link para github, no estilo grid um do lado do outro, fundo de vidro
 // passa o mouse em cima ele da uma crescida com uma logo no meio do card bem basica, fazer usando string para conseguir adicionar mais projetos
 const conteudos = {

@@ -4,12 +4,6 @@ import Header from '@/components/sobre_mim/header/header'
 import Image from "next/image";
 import linha from "@/public/images/line.svg"
 import buracoNegro from "@/public/images/buraco_negro.png"
-//import { Suspense } from "react";
-
-//mais pra frente vou tentar colocar um 3d de buraco negro
-// //3D
-// import { Canvas } from "@react-three/fiber";
-// import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
 
 const Section = styled.div`
     height:100vh;
@@ -35,21 +29,6 @@ const Sobre = () =>{
                     <div className={css.div_bottom}>
                         <Image className={css.buraco_negro} src={buracoNegro}></Image>
                         <div className={css.nebula}>
-                            {/* <Canvas>
-                                <Suspense fallback={null}>
-                                    <OrbitControls enableZoom={false} />
-                                    <ambientLight intensity={1} />
-                                    <directionalLight position={[3, 2, 1]} />
-                                    <Sphere args={[1, 100, 200]} scale={2.5}>
-                                    <MeshDistortMaterial
-                                        color="#5c198f"
-                                        attach="material"
-                                        distort={0.5}
-                                        speed={1}
-                                    />
-                                    </Sphere>
-                                </Suspense>
-                            </Canvas> */}
                         </div>
                     </div>
                 </div>

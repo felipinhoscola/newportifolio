@@ -20,6 +20,7 @@ const Container = styled.div`
   }
   background: url("./images/bg.jpg");  
   background-size: 100% !important;
+ 
 `;
 
 export default function Home() {
