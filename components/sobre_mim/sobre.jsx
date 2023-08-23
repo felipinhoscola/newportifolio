@@ -4,7 +4,7 @@ import Header from '@/components/sobre_mim/header/header'
 import Image from "next/image";
 import linha from "@/public/images/line.svg"
 import buracoNegro from "@/public/images/buraco_negro.png"
-
+//teste
 const Section = styled.div`
     height:100vh;
     scroll-snap-align: center;
