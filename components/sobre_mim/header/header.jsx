@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import logotipo from "@/public/images/logotipo.svg";
 import css from "./header.module.scss";
 import Dropdown from 'react-bootstrap/Dropdown';

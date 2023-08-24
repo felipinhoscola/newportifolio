@@ -1,3 +1,4 @@
+@import "@/styles/mixins/textos.scss";
 .container{
     height: 100vh;
     scroll-snap-align: center;
@@ -29,7 +30,7 @@
 }
 .cardHead{
     text-align: center;
-    font-family: "Poppins", sans-serif;
+    font-family: $font-poppins;
     padding: 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
@@ -39,13 +40,13 @@
 
 .cardTitle{
     padding-top: 1rem;
-    font-family: "Poppins", sans-serif;
+    font-family: $font-poppins;
     font-size: 1.3rem;
     text-align: center;
     height: 6rem;
 }
 .cardDesc{
-    font-family: "Poppins", sans-serif;
+    font-family: $font-poppins;
     word-wrap: break-word;
     font-size: 1.1rem;
     padding-left: 15px;
