@@ -105,9 +105,9 @@ const Contato = () => {
             ))}
           </Buttons>
         </Left>
-        <Right>
+        {/* <Right>
             <Map/>
-        </Right>
+        </Right> */}
       </Container>
     </Section>
   );
