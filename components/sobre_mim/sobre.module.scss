@@ -13,6 +13,9 @@
     display: flex;
     justify-content: center;
     gap: 3rem;
+    @media only screen and (max-width: 1366px){
+        margin-top: 3rem;
+    }
     @media only screen and (max-width: 768px){
         margin-top: 1rem;
     }
@@ -46,11 +49,16 @@
 .linha{
     height: 5px;
     width: 20px;
+    margin-bottom: 11px;
     color: white;
+    @media only screen and (max-width: 1366px){
+        font-size: 1rem;  
+        margin-bottom: 15px;
+    }
     @media only screen and (max-width: 768px){
         height: 5px;
         width: 22px;
-        margin-bottom: 11px;
+        margin-bottom: 15px;
     }
 }
 .text_sobre{
@@ -63,18 +71,33 @@
             transform: translateX(1rem);
         }
     }
+    @media only screen and (max-width: 1366px){
+        font-size: 1rem;  
+    }
+    @media only screen and (max-width: 768px){
+        font-size: 1.2rem;  
+    }
 }
 .titulo{
     font-size: 4.5rem;
     font-weight: bold;
     font-family: 'Anton', sans-serif;
+    @media only screen and (max-width: 1366px){
+        font-size: 3.5rem;  
+    }
     @media only screen and (max-width: 768px){
-        font-size: 1.5rem;  
+        font-size: 2.5rem;  
     }
 }
 .desc_sobre{
     font-size: 1.2rem;
     font-family: $font-poppins;
+    @media only screen and (max-width: 1366px){
+        font-size: 1rem;  
+    }
+    @media only screen and (max-width: 768px){
+        font-size: 1.2rem;  
+    }
 }
 
 .buraco_negro{
@@ -91,6 +114,15 @@
     @keyframes animate {
         to{
             transform: rotate(360deg) scale(1.5);
+        }
+    }
+    @media only screen and (max-width: 1366px){
+        width: 100%;
+        height: 100%;  
+        @keyframes animate {
+            to{
+                transform: rotate(360deg) scale(1.2);
+            }
         }
     }
     

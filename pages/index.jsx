@@ -21,6 +21,11 @@ const Container = styled.div`
   background: url("./images/bg.jpg");  
   background-size: 100% !important;
  
+  @media only screen and (max-width: 768px){
+    /* background: rgb(171,59,246);
+    background: linear-gradient(90deg, rgba(171,59,246,1) 0%, rgba(56,2,116,1) 50%, rgba(26,1,50,1) 100%);   */
+    background-size: 800px 900px !important;
+  }
 `;
 
 export default function Home() {

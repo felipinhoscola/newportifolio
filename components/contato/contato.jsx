@@ -65,6 +65,10 @@ const Title = styled.h1`
   font-family: "Poppins", sans-serif;
   font-size: 4rem;
   font-weight: 200;
+  @media only screen and (max-width: 768px){
+    font-size: 3rem;
+    font-weight: 300;
+  }
 `;
 const Buttons = styled.div`
     font-family: "Poppins", sans-serif;
@@ -87,6 +91,10 @@ const Btn = styled.a`
   transition: transform 500ms;
   :hover{
     transform: scale(1.1);
+  }
+  @media only screen and (max-width: 768px){
+    width: 12rem;
+    padding: 15px;
   }
 `;
 

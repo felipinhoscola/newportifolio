@@ -8,8 +8,10 @@
     padding: 0 2rem 0 2rem;
     font-family: $font-header;
     
+    
 }
 .menu_principal{
+    
     @media only screen and (max-width: 768px){
         display: none;
     } 
@@ -24,6 +26,9 @@
     color: white;
     font-size: 1.2rem;
     font-family: $font-poppins;
+    @media only screen and (max-width: 1366px){
+        font-size: 1rem;
+    }
 }
 .logo_tamanho{
     width: 8rem;

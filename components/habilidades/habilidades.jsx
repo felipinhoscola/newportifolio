@@ -26,12 +26,26 @@ const Div_principal = styled.div`
   justify-content: space-evenly;
   height: 100vh;
   gap: 25;
+  @media only screen and (max-width: 768px){
+    flex-direction:column;
+    justify-content: center;
+    height: 100vh;
+    width: 40%;
+    gap: 1rem;
+  }
+  
 `;
 const Div_left = styled.div`
   max-width: 25%;
+  @media only screen and (max-width: 768px){
+    max-width: 30%;
+  }
 `;
 const Div_right = styled.div`
   max-width: 40%;
+  @media only screen and (max-width: 768px){
+    max-width: 100%;
+  }
 `;
 const Ul = styled.div`
   list-style-type: none;
@@ -50,7 +64,7 @@ const Topicos = styled.li`
   ::after{
     content: "${(props) => props.text}";
     position: absolute;
-    top: 0;
+    
     left: 0;
     color:#ddaebe;
     width: 0;
@@ -80,11 +94,20 @@ const Infos = styled.div`
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  @media only screen and (max-width: 768px){
+      width: 45vh;
+      margin-left: 5px;
+      height: 100%
+    }
 `;
 const Icons = styled.div`
   display: flex;
   gap: 2rem;
   justify-content: space-around;
+  @media only screen and (max-width: 768px){
+    gap: 10px;
+    justify-content: center;
+  }
 `;
 const Text = styled.div`
   margin-top: 2rem;
@@ -94,6 +117,14 @@ const Text = styled.div`
   text-align: justify;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  @media only screen and (max-width: 766px){
+      font-size: 8px;
+      margin-top: 1.2rem;
+  }
+  @media only screen and (max-width: 1366px){
+      font-size: 1rem;
+      margin-top: 1.2rem;
+  }
 `;
 const Titulo = styled.div`
   margin-top: 2rem;
@@ -124,6 +155,10 @@ const Habilidades = () => {
     flex-direction: column;
     animation: fadeDesc 2s;
 
+    @media only screen and (max-width: 1366px){
+      
+    }
+
     @keyframes fadeDesc{
       from{
         opacity:0;
@@ -131,6 +166,7 @@ const Habilidades = () => {
       to{
         opacity:1;
       }
+    
   } 
   `;
   function carregaTopico(item) {

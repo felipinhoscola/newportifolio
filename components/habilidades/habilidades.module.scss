@@ -5,4 +5,8 @@
         transform: scale(1.1);
         color: #dbc4cb;
     }
+    @media only screen and (max-width: 768px){
+        height: 2.5rem;
+        width: 2.5rem;
+    }
 }
